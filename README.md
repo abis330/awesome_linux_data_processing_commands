@@ -26,3 +26,6 @@ http://www.benhepworth.com/blog/2016/05/18/install-python-to-separate-directory-
 
 **Command to modify a specific cell in .csv file**
 >awk -F, 'FNR==1,FNR==1{$3="TIME_DIFF"}1' OFS=,  temp.csv > temp1.csv
+
+**Command to insert a column after existing last column with the header name specified**
+>awk -F, '{$(NF+1)=$1-_n;_n=$1;if(NR==1){$3="TIME_DIFF"};}1' OFS=, full_row.csv > final_row.csv
